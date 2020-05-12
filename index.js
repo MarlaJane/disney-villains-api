@@ -10,7 +10,7 @@ app.get('/villains/:slug', getVillainBySlug)
 
 app.post('/villains', bodyParser.json(), createNewVillain)
 
-app.all('*', (request, response) => response.status(404).send('Page Not Found'))
+// app.all('*', (request, response) => response.status(404).send('Page Not Found'))
 
 app.listen(2319, () => {
   // eslint-disable-next-line no-console
