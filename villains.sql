@@ -1,4 +1,9 @@
+SELECT* FROM villains;
+
 CREATE DATABASE disney;
+
+USE disney;
+SELECT* FROM villains;
 
 CREATE USER 'disneyvillains'@'localhost' IDENTIFIED WITH mysql_native_password BY 'b@d2th3B0N3!';
 
@@ -35,3 +40,4 @@ INSERT INTO villains (name, movie, slug) VALUES ('Scar', 'The Lion King', 'scar'
 INSERT INTO villains (name, movie, slug) VALUES ('Shan Yu', 'Mulan', 'shan-yu');
 INSERT INTO villains (name, movie, slug) VALUES ('Shere Khan', 'The Jungle Book', 'shere-khan');
 INSERT INTO villains (name, movie, slug) VALUES ('Ursula', 'The Little Mermaid', 'ursula')
+
