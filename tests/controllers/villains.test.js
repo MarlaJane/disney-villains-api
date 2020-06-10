@@ -5,8 +5,8 @@ const {
 const { createSandbox } = require('sinon')
 const chai = require('chai')
 const sinonChai = require('sinon-chai')
-const { listOfVillains, singleVillain } = require('../mocks/villains')
 const models = require('../../models')
+const { listOfVillains, newVillain, singleVillain } = require('../mocks/villains')
 const { getAllVillains, getVillainBySlug, createNewVillain } = require('../../controllers/villains')
 
 chai.use(sinonChai)
@@ -110,18 +110,18 @@ describe('Controllers - Villains', () => {
 
   describe('createNewVillain', () => {
     it('creates a new villain database record from the data provided and responds with a 200 status and the new record', async () => {
-      stubbedCreate.returns(singleVillain)
-      const request = { body: { name: 'Hades', movie: 'Hercules', slug: 'hades', } }
+      stubbedCreate.returns(newVillain)
+      const request = { body: { name: 'Tromp', movie: 'The Countrys End', slug: 'tromp', } }
 
       await createNewVillain(request, response)
 
-      expect(stubbedCreate).to.have.been.calledWith({ name: 'Hades', movie: 'Hercules', slug: 'hades', })
+      expect(stubbedCreate).to.have.been.calledWith({ name: 'Tromp', movie: 'The Countrys End', slug: 'tromp', })
       expect(stubbedStatus).to.have.been.calledWith(201)
-      expect(stubbedStatusDotSend).to.have.been.calledWith(singleVillain)
+      expect(stubbedStatusDotSend).to.have.been.calledWith(newVillain)
     })
 
     it('responds with a 400 status and error message when not all required data is provided', async () => {
-      const request = { body: { name: 'Hades', movie: 'Hercules' } }
+      const request = { body: { name: 'Tromp', movie: 'The Countrys End' } }
 
       await createNewVillain(request, response)
 
@@ -132,13 +132,13 @@ describe('Controllers - Villains', () => {
 
     it('responds with a 500 status and error message with the database call throws an error', async () => {
       stubbedCreate.throws('ERROR!')
-      const request = { body: { name: 'Hades', movie: 'Hercules', slug: 'hades', } }
+      const request = { body: { name: 'Tromp', movie: 'The Countrys End', slug: 'tromp', } }
 
       await createNewVillain(request, response)
 
-      expect(stubbedCreate).to.have.been.calledWith({ name: 'Hades', movie: 'Hercules', slug: 'hades', })
+      expect(stubbedCreate).to.have.been.calledWith({ name: 'Tromp', movie: 'The Countrys End', slug: 'tromp', })
       expect(stubbedStatus).to.have.been.calledWith(500)
-      expect(stubbedStatusDotSend).to.have.been.calledWith('Cannot creat villain')
+      expect(stubbedStatusDotSend).to.have.been.calledWith('Cannot create villain')
     })
   })
 })

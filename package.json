@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stackeducation/disney-villains-api.git"
+    "url": "git+https://github.com/MarlaJane/disney-villains-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stackeducation/disney-villains-api/issues"
+    "url": "https://github.com/MarlaJane/disney-villains-api/issues"
   },
-  "homepage": "https://github.com/stackeducation/disney-villains-api#readme",
+  "homepage": "https://github.com/MarlaJane/disney-villains-api#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
